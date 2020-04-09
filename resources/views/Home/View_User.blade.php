@@ -55,27 +55,27 @@
     </center>
     <div class="container bg card">
         <table width="100%">
-            <th>AIUB ID</th>
+            <th>ID</th>
             <th>Name</th>
-            <th>Dept</th>
-            <th>CGPA</th>
+            <th>Password</th>
+            <th>Type</th>
             <th>Action</th>
 
             @for($i=0; $i< count($std); $i++)
             <tr>
-                <td>{{$std[$i]['id']}}</td>
-                <td width="15%">{{$std[$i]['name']}}</td>
-                <td>{{$std[$i]['dept']}}</td>
-                <td>{{$std[$i]['cgpa']}}</td>
+                <td>{{$std[$i]['userId']}}</td>
+                <td width="15%">{{$std[$i]['username']}}</td>
+                <td>{{$std[$i]['password']}}</td>
+                <td>{{$std[$i]['type']}}</td>
                 <td>
                     <!-- <input type="submit" value="Edit" class="btn btn-info" href="/home/editUser/{{$std[$i]['sid']}}"> -->
-                    <a href="/home/editUser/{{$std[$i]['id']}}">
+                    <a href="/home/editUser/{{$std[$i]['userId']}}">
                         <input type="button" value="Edit" class="btn btn-info">
                     </a>
                     <!-- <input type="button" value="Delete" class="btn btn-danger"> -->
                     <!-- <form method="POST"> -->
                         <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
-                        <a href="/home/delete/{{$std[$i]['id']}}">
+                        <a href="/home/delete/{{$std[$i]['userId']}}">
                             <input type="button" value="Delete" class="btn btn-danger">
                         </a>
                     <!-- </form> -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,8 @@ class HomeController extends Controller
 
     public function viewUserList(){
         // $studentList = Student::all(); //All Data
-        $studentList = Student::paginate(5); //Pagination Data
-        return view('Home.View_User',['std'=>$studentList]);
+        $userList = User::paginate(5); //Pagination Data
+        return view('Home.View_User',['std'=>$userList]);
     }
 
     public function createUser(){
