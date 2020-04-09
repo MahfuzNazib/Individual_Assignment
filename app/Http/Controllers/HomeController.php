@@ -28,6 +28,12 @@ class HomeController extends Controller
     }
 
     public function update($userId, Request $req){
+
+        $this->validate($req,[
+            'uname' => 'required',
+            'password' => 'required'
+        ]);
+
         $user = User::find($userId);
 
         $user->username = $req->uname;
