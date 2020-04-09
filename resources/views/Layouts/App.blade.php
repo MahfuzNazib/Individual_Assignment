@@ -29,7 +29,7 @@
             <a class="nav-link" href="{{route('home.viewUserList')}}">View Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Edit User</a>
+                <a class="nav-link" href="{{route('home.buscounter')}}">Bus Counter List</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('logout.index')}}">Logout</a>

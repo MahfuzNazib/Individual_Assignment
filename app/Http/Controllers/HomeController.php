@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\User;
+use App\BusCounter;
 
 class HomeController extends Controller
 {
@@ -67,5 +68,13 @@ class HomeController extends Controller
     public function delete($userId, Request $req){
         User::find($userId)->delete();
         return redirect()->route('home.viewUserList')->with('msgDlt','User Successfully Deleted');
+    }
+
+
+    //get Bus Counter List
+
+    public function buscounter(){
+        $counterList = BusCounter::paginate(5);
+        return view('Home.BusCounter',['counter'=> $counterList]);
     }
 }
