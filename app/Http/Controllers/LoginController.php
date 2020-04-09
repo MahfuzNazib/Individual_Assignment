@@ -16,15 +16,23 @@ class LoginController extends Controller
 
         //Null Validation
         $this->validate($req,[
-            'email' => 'required',
+            // 'email' => 'required',
             'password' => 'required'
         ]);
         $user = User::where('username',$req->username)
                     ->where('password',$req->password)
                     ->first();
+        // error_log($user);
         if($user != null){
-            $req->session()->put('username', $req->username);
-            return redirect()->route('home.index');
+
+            if($user['type'] == "Admin"){
+                $req->session()->put('username', $req->username);
+                return redirect()->route('home.index');
+            }
+            else{
+                "Manager Request";
+            }
+            
         }
         else{
             $req->session()->flash('msg', 'Invalid Username or Password');
