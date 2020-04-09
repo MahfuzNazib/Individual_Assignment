@@ -30,8 +30,8 @@ class HomeController extends Controller
     public function update($userId, Request $req){
         $user = User::find($userId);
 
-        $user->username = $req->name;
-        $user->password = $req->dept;
+        $user->username = $req->uname;
+        $user->password = $req->password;
         // $suser->cgpa = $req->cgpa;
 
         $user->save();

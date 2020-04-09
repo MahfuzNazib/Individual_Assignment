@@ -52,7 +52,7 @@
             <tr>
                 <td>Username</td>
                 <td>
-                    <input type="text" class="form-control" placeholder="Full Name" value="{{$username}}" name="name">
+                    <input type="text" class="form-control" placeholder="Full Name" value="{{$username}}" name="uname">
                 </td>
             </tr>
 
