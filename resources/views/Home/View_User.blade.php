@@ -49,7 +49,7 @@
 
         @if(session('msgDlt'))
             <div class="alert alert-danger">
-                {{session('mgDlt')}}
+                {{session('msgDlt')}}
             </div>
         @endif
     </center>
