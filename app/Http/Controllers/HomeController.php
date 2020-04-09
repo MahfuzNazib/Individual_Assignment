@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\User;
 use App\BusCounter;
+// use Illuminate\Support\Facades\DB;
+use DB;
+use Symfony\Component\Console\Helper\Table;
 
 class HomeController extends Controller
 {
@@ -74,7 +77,21 @@ class HomeController extends Controller
     //get Bus Counter List
 
     public function buscounter(){
-        $counterList = BusCounter::paginate(5);
-        return view('Home.BusCounter',['counter'=> $counterList]);
+        
+        return view('Home.BusCounter');
+    }
+
+
+    //Search on BusCounter Table
+
+    public function search(Request $req){
+        if($req->search){
+            $searchs = DB::table('bus_counters')
+                    ->where('name', $req->search)
+                    ->get();
+            
+            error_log($searchs);
+            // return view('Home.BusCounter',['src'=>$searchs]);
+        }
     }
 }
