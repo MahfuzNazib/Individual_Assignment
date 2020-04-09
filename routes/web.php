@@ -25,10 +25,10 @@ Route::group(['middleware'=>['sass']], function(){
     Route::get('/home','HomeController@index')->name('home.index');
     Route::get('/home/viewUserList','HomeController@viewUserList')->name('home.viewUserList');
     Route::get('/home/createUser','HomeController@createUser')->name('home.createUser');
-    Route::get('/home/editUser/{id}','HomeController@editUser')->name('home.editUser');
-    Route::post('/home/editUser/{id}','HomeController@update')->name('home.update');
+    Route::get('/home/editUser/{userId}','HomeController@editUser')->name('home.editUser');
+    Route::post('/home/editUser/{userId}','HomeController@update')->name('home.update');
     Route::post('/home/createUser','HomeController@insertUser')->name('home.insertUser');
-    Route::get('/home/delete/{id}','HomeController@delete')->name('home.delete');
+    Route::get('/home/delete/{userId}','HomeController@delete')->name('home.delete');
 });
 
 

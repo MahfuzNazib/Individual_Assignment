@@ -22,21 +22,21 @@ class HomeController extends Controller
         return view('Home.createUser');
     }
 
-    public function editUser($id, Request $req){
-        $studentList = Student::find($id);    
-        return view('home.editUser',$studentList);
+    public function editUser($userId, Request $req){
+        $user = User::find($userId);    
+        return view('home.editUser',$user);
     }
 
-    public function update($id, Request $req){
-        $student = Student::find($id);
+    public function update($userId, Request $req){
+        $user = User::find($userId);
 
-        $student->name = $req->name;
-        $student->dept = $req->dept;
-        $student->cgpa = $req->cgpa;
+        $user->username = $req->name;
+        $user->password = $req->dept;
+        // $suser->cgpa = $req->cgpa;
 
-        $student->save();
+        $user->save();
 
-        return redirect()->route('home.viewUserList')->with('msg','Student Successfully Updated');
+        return redirect()->route('home.viewUserList')->with('msg','User Successfully Updated');
     }
 
     public function insertUser(Request $req){
@@ -58,8 +58,8 @@ class HomeController extends Controller
         return redirect()->route('home.createUser')->with('msg','Student Successfully Added');
     }
 
-    public function delete($id, Request $req){
-        Student::find($id)->delete();
-        return redirect()->route('home.viewUserList')->with('msgDlt','Student Successfully Deleted');
+    public function delete($userId, Request $req){
+        User::find($userId)->delete();
+        return redirect()->route('home.viewUserList')->with('msgDlt','User Successfully Deleted');
     }
 }

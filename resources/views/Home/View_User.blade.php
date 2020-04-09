@@ -72,13 +72,10 @@
                     <a href="/home/editUser/{{$std[$i]['userId']}}">
                         <input type="button" value="Edit" class="btn btn-info">
                     </a>
-                    <!-- <input type="button" value="Delete" class="btn btn-danger"> -->
-                    <!-- <form method="POST"> -->
-                        <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
+                    
                         <a href="/home/delete/{{$std[$i]['userId']}}">
                             <input type="button" value="Delete" class="btn btn-danger">
                         </a>
-                    <!-- </form> -->
                 </td>
             </tr>
             @endfor

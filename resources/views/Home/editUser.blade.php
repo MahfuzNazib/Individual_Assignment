@@ -48,35 +48,25 @@
         <form method="POST">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <table>
-            <!-- <tr>
-                <td>AIUB ID</td>
+
+            <tr>
+                <td>Username</td>
                 <td>
-                    <input type="text" class="form-control" placeholder="Enter AIUB ID">
+                    <input type="text" class="form-control" placeholder="Full Name" value="{{$username}}" name="name">
                 </td>
-            </tr> -->
+            </tr>
+
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="text" name="password" value="{{$password}}" class="form-control">
+                </td>
+            </tr>
 
             <tr>
                 <td>Name</td>
                 <td>
-                    <input type="text" class="form-control" placeholder="Full Name" value="{{$name}}" name="name">
-                </td>
-            </tr>
-
-            <tr>
-                <td>Department</td>
-                <td>
-                    <select class="form-control" name="dept">
-                        <option >{{$dept}}</option>
-                        <option >CSE</option>
-                        <option >CSE</option>
-                    </select>
-                </td>
-            </tr>
-
-            <tr>
-                <td>CGPA</td>
-                <td>
-                    <input type="number" class="form-control" placeholder="CGPA" value="{{$cgpa}}" name="cgpa">
+                    <input type="number" class="form-control" placeholder="CGPA" value="" name="cgpa">
                 </td>
             </tr>
 
