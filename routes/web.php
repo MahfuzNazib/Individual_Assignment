@@ -42,6 +42,8 @@ Route::group(['middleware'=>['sass']], function(){
 
     //Delete Bus Counter
     Route::get('/home/deleteBusCounter/{id}', 'HomeController@deleteBusCounter')->name('home.deleteBusCounter');
+    Route::get('/home/removeBusCounter/{id}', 'HomeController@removeBusCounter')->name('home.removeBusCounter');
+    
 
 });
 

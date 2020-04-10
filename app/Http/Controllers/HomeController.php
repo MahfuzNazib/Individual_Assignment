@@ -197,9 +197,16 @@ class HomeController extends Controller
 
     //Delete Bus Counter
 
-    public function deleteBusCounter($id, Request $req){
+    public function deleteBusCounter($id){
 
         $busCounter = BusCounter::find($id);
-        return view('Home.DeleteBusCounter',['busCounter' => $busCounter]);
+        
+        return view('Home.DeleteBusCounter',['busCounter'=>$busCounter]);
+    }
+
+    public function removeBusCounter($id){
+        $busCounter = BusCounter::find($id);
+        $busCounter->delete();
+        return redirect()->route('home.buscounter')->with('msg', 'Bus Counter Deleted');
     }
 }

@@ -7,8 +7,8 @@
 
     <div class="container bg card">
         
-        <form method="post">
-            {{ csrf_field() }}
+        <!-- <form method="post"> -->
+            <!-- {{ csrf_field() }} -->
         <table class="table table-hover">
             <tr>
                 <td>ID</td>
@@ -49,14 +49,14 @@
                 </td>
                 <td>
                     <center>
-                            <input type="submit" class="btn btn-danger" value="Yes">
+                            <a href="/home/removeBusCounter/{{ $busCounter['id'] }}">
+                                <input type="submit" class="btn btn-danger" value="Yes">
+                            </a>
                             <input type="submit" class="btn btn-secondary" value="No">
-
-                        
                     </center>
                 </td>
             </tr>
         </table>
-        </form>
+        <!-- </form> -->
     </div>
 @endsection
