@@ -84,14 +84,64 @@ class HomeController extends Controller
 
     //Search on BusCounter Table
 
-    public function search(Request $req){
-        if($req->search){
-            $searchs = DB::table('bus_counters')
-                    ->where('name', $req->search)
-                    ->get();
-        
-            // error_log($searchs);
-            return view('Home.BusCounter',['list'=>$searchs]);
+    function action(request $request){
+        if($request->ajax()){
+            $output = '';
+            $query = $request->get('query');
+            // error_log($query);
+            if($query != ''){
+                $data = DB::table('bus_counters')
+                        -> where('name','like','%'. $query .'%')
+                        ->orWhere('id','like','%'.$query.'%')
+                        ->orWhere('location','like','%'.$query.'%')
+                        ->get();
+            }
+            else{
+                $data = DB::table('bus_counters')->get();
+            }
+            $total_row = $data->count();
+            if($total_row > 0){
+                foreach($data as $row){
+                    $output .= '
+                        <tr>
+                            <td>'.$row->id.'</td>
+                            <td>'.$row->oparetor.'</td>
+                            <td>'.$row->manager.'</td>
+                            <td>'.$row->name.'</td>
+                            <td>'.$row->location.'</td>
+                            <td>
+                                <a href="/home">
+                                    <input type="submit" class="btn btn-info" value="Edit">
+                                </a>
+
+                                <a href="/home">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </a>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+            else{
+                $output = '
+                    <tr>
+                        <td align="center" colspan="5"> No Data Found </td>
+                    </tr>
+                ';
+            }
+
+            $data = array(
+                'table_data'    => $output
+            );
+
+            echo json_encode($data);
         }
+    }
+
+
+    //Add New BusCounter
+
+    public function addbuscounter(){
+        return view('Home.AddBusCounter');
     }
 }

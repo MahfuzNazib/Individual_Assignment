@@ -30,7 +30,11 @@ Route::group(['middleware'=>['sass']], function(){
     Route::post('/home/createUser','HomeController@insertUser')->name('home.insertUser');
     Route::get('/home/delete/{userId}','HomeController@delete')->name('home.delete');
     Route::get('/home/buscounter', 'HomeController@buscounter')->name('home.buscounter');
-    Route::post('/home/search', 'HomeController@search')->name('home.search');
+    Route::get('/home/action', 'HomeController@action')->name('home.search');
+
+    //Add New Bus Counter
+    Route::get('/home/addbuscounter', 'HomeController@addbuscounter')->name('home.addbuscounter');
+    
 });
 
 

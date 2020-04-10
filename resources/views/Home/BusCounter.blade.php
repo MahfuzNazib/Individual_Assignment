@@ -3,19 +3,22 @@
     <center>
         <h3>Bus Counter List</h3>
         <hr>
+        <a href="{{ route('home.addbuscounter') }}">
+            <input type="submit" class="btn btn-success" value="Add New Bus Counter">
+        </a>
 
         <input id="token" name="_token" type="hidden" value="{{csrf_token()}}">
 
-        <?php $lists = DB::table('bus_counters')->get(); ?>
+        
         <div class="container">
             <center>
-                <input type="text" class="form-control" placeholder="Searche Here..." onkeyup="search()" id="search">
+                <input type="text" class="form-control" placeholder="Search Here..."  name="search" id="search">
             </center>
         </div>
 
         <br><br>
 
-        <table class="table " id="genaraldata">
+        <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -27,57 +30,43 @@
                 </tr>
             </thead>
 
-            <tbody id="">
-                @foreach($lists as $list)
-                    <tr>
-                        <td>{{ $list->id }}</td>
-                        <td>{{ $list->oparetor }}</td>
-                        <td>{{ $list->manager }}</td>
-                        <td>{{ $list->name }}</td>
-                        <td>{{ $list->location }}</td>
-                        <td>
-                            <input type="submit" class="btn btn-info" value="Edit"> | 
-                            <input type="submit" class="btn btn-danger" value="Delete"> 
+            <tbody>
 
-                        </td>
-                    </tr>
-                @endforeach
             </tbody>
         </table>
 
 
-        
 
+        <script>
+            $(document).ready(function(){
+                fetch_customer_data();
 
-        <!-- AJAX Code -->
+                function fetch_customer_data(query = ''){
+                    $.ajax({
+                        url: "{{ route('home.search') }}",
+                        method: 'GET',
+                        data : {query : query},
+                        dataType: 'json',
+                        success: function(data){
+                            $('tbody').html(data.table_data);
 
-        <script type="text/javascript">
-            function search(){
-                var search = $('#search').val();
-
-                if(search){
-                    $("#genaraldata").hide();
-                    $("#ajaxdata").show();
+                        }
+                    })
                 }
-                else{
-                    $("#genaraldata").show();
-                    $("#ajaxdata").hide();
-                }
-                // console.log(search);
-                $.ajax({
-                    type: "POST",
-                    url: '{{URL::to("/home/search")}}',
-                    data : {
-                        search : search,
-                        _token : $('#token').val()
-                    },
-                    datatype : 'html',
-                    success : function(response){
-                        // console.log(response);
-                        $("#success").html(response);
-                    }
+
+                $(document).on('keyup', '#search', function(){
+                    var query = $(this).val();
+                    console.log(query);
+                    fetch_customer_data(query);
                 });
-            }
+
+                // search(){
+                //     var query = $(this).val();
+                //     console.log(query);
+                //     fetch_customer_data(query);
+                // }
+
+            });
         </script>
         
 @endsection
