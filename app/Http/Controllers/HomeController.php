@@ -171,8 +171,6 @@ class HomeController extends Controller
     public function editBusCounter($id, Request $req){
 
         $busCounter = BusCounter::find($id);
-
-        // error_log($busCounter);
         return view('Home.EditBusCounter',['busCounter' => $busCounter]);
     }
 
@@ -195,5 +193,13 @@ class HomeController extends Controller
         
         $newBusCounter->save();
         return redirect()->route('home.buscounter')->with('msg', 'Bus Counter Successfully Updated');
+    }
+
+    //Delete Bus Counter
+
+    public function deleteBusCounter($id, Request $req){
+
+        $busCounter = BusCounter::find($id);
+        return view('Home.DeleteBusCounter',['busCounter' => $busCounter]);
     }
 }
