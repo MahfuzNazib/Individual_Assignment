@@ -2,14 +2,18 @@
 @section('content')
     <center>
         <h3>Bus Counter List</h3>
-        <hr>
         <a href="{{ route('home.addbuscounter') }}">
             <input type="submit" class="btn btn-success" value="Add New Bus Counter">
         </a>
-
+        <hr>
+    
         <input id="token" name="_token" type="hidden" value="{{csrf_token()}}">
 
-        
+        @if(session('msg'))
+            <div class="alert alert-success">
+                {{session('msg')}}
+            </div>
+        @endif
         <div class="container">
             <center>
                 <input type="text" class="form-control" placeholder="Search Here..."  name="search" id="search">
@@ -59,12 +63,6 @@
                     console.log(query);
                     fetch_customer_data(query);
                 });
-
-                // search(){
-                //     var query = $(this).val();
-                //     console.log(query);
-                //     fetch_customer_data(query);
-                // }
 
             });
         </script>

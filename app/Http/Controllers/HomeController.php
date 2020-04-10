@@ -144,4 +144,25 @@ class HomeController extends Controller
     public function addbuscounter(){
         return view('Home.AddBusCounter');
     }
+
+    //Insert New Bus Counter
+
+    public function newbuscounter(Request $req){
+        $this->validate($req, [
+            'name'      => 'required',
+            'oparetor'  => 'required',
+            'manager'   => 'required',
+            'location'  => 'required|min:4'
+        ]);
+
+        $newBusCounter = new BusCounter();
+
+        $newBusCounter->oparetor = $req->oparetor;
+        $newBusCounter->manager  = $req->manager;
+        $newBusCounter->name    = $req->name;
+        $newBusCounter->location = $req->location;
+
+        $newBusCounter->save();
+        return redirect()->route('home.buscounter')->with('msg', 'New Bus Counter Successfully Added');
+    }
 }
