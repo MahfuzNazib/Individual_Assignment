@@ -114,7 +114,7 @@ class HomeController extends Controller
                                     <input type="submit" class="btn btn-info" value="Edit">
                                 </a>
 
-                                <a href="/home">
+                                <a href="/home/deleteBusCounter/'.$row->id.'">
                                     <input type="submit" class="btn btn-danger" value="Delete">
                                 </a>
                             </td>
