@@ -89,9 +89,9 @@ class HomeController extends Controller
             $searchs = DB::table('bus_counters')
                     ->where('name', $req->search)
                     ->get();
-            
-            error_log($searchs);
-            // return view('Home.BusCounter',['src'=>$searchs]);
+        
+            // error_log($searchs);
+            return view('Home.BusCounter',['list'=>$searchs]);
         }
     }
 }

@@ -23,6 +23,7 @@
                     <th>Manager</th>
                     <th>Name</th>
                     <th>Location</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -34,29 +35,18 @@
                         <td>{{ $list->manager }}</td>
                         <td>{{ $list->name }}</td>
                         <td>{{ $list->location }}</td>
+                        <td>
+                            <input type="submit" class="btn btn-info" value="Edit"> | 
+                            <input type="submit" class="btn btn-danger" value="Delete"> 
+
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
 
-        <table class="table " style="display: none" id="ajaxdata">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Operator</th>
-                    <th>Manager</th>
-                    <th>Name</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-
-            <tbody id="">
-                    <tr>
-                        
-                    </tr>
-            </tbody>
-        </table>
+        
 
 
         <!-- AJAX Code -->
@@ -83,7 +73,7 @@
                     },
                     datatype : 'html',
                     success : function(response){
-                        console.log(response);
+                        // console.log(response);
                         $("#success").html(response);
                     }
                 });
