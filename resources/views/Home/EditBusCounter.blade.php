@@ -6,8 +6,10 @@
     </center>
 
     <div class="container bg card">
+        
+        <form method="post">
+            {{ csrf_field() }}
         <table>
-
             <tr>
                 <td>ID</td>
                 <td>
@@ -46,12 +48,12 @@
                 <td></td>
                 <td>
                     <center>
-                        <a href="{{ route('home.addbuscounter') }}">
                             <input type="submit" class="btn btn-success" value="Update">
-                        </a>
+                        
                     </center>
                 </td>
             </tr>
         </table>
+        </form>
     </div>
 @endsection

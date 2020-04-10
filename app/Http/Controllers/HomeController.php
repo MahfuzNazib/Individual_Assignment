@@ -175,4 +175,25 @@ class HomeController extends Controller
         // error_log($busCounter);
         return view('Home.EditBusCounter',['busCounter' => $busCounter]);
     }
+
+    //Update Bus Counter Information
+
+    public function updateBusCounter($id, Request $req){
+        $this->validate($req,[
+            'name'  => 'required',
+            'manager' => 'required',
+            'oparetor' =>  'required',
+            'location' => 'required|min:4'
+        ]);
+
+        $newBusCounter = BusCounter::find($id);
+
+        $newBusCounter->oparetor = $req->oparetor;
+        $newBusCounter->manager  = $req->manager;
+        $newBusCounter->name    = $req->name;
+        $newBusCounter->location = $req->location;
+        
+        $newBusCounter->save();
+        return redirect()->route('home.buscounter')->with('msg', 'Bus Counter Successfully Updated');
+    }
 }

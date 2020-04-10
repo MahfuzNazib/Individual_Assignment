@@ -38,6 +38,8 @@ Route::group(['middleware'=>['sass']], function(){
 
     //Edit BusCounter
     Route::get('/home/editBusCounter/{id}', 'HomeController@editBusCounter')->name('home.editBusCounter');
+    Route::post('/home/editBusCounter/{id}', 'HomeController@updateBusCounter')->name('home.updatebuscounter');
+
 });
 
 
