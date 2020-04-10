@@ -36,7 +36,8 @@ Route::group(['middleware'=>['sass']], function(){
     Route::get('/home/addbuscounter', 'HomeController@addbuscounter')->name('home.addbuscounter');
     Route::post('/home/addbuscounter', 'HomeController@newbuscounter')->name('home.newbuscounter');
 
-    
+    //Edit BusCounter
+    Route::get('/home/editBusCounter/{id}', 'HomeController@editBusCounter')->name('home.editBusCounter');
 });
 
 

@@ -110,7 +110,7 @@ class HomeController extends Controller
                             <td>'.$row->name.'</td>
                             <td>'.$row->location.'</td>
                             <td>
-                                <a href="/home">
+                                <a href="/home/editBusCounter/'.$row->id.'">
                                     <input type="submit" class="btn btn-info" value="Edit">
                                 </a>
 
@@ -164,5 +164,15 @@ class HomeController extends Controller
 
         $newBusCounter->save();
         return redirect()->route('home.buscounter')->with('msg', 'New Bus Counter Successfully Added');
+    }
+
+    //Edit BusCounter Info
+
+    public function editBusCounter($id, Request $req){
+
+        $busCounter = BusCounter::find($id);
+
+        // error_log($busCounter);
+        return view('Home.EditBusCounter',['busCounter' => $busCounter]);
     }
 }
