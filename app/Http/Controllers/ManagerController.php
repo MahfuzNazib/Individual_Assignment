@@ -158,6 +158,12 @@ class ManagerController extends Controller
     //Bus List 
 
     public function busList(){
-        return view('Manager.BusList');
+
+        $busList = Bus::all();
+        return view('Manager.BusList',['busList' => $busList]);
     }
+
+    //Get All Bus List
+
+    
 }
