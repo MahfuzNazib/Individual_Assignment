@@ -24,9 +24,9 @@
             <li class="nav-item active">
             <a class="nav-link" href="#">Home</a>
             </li>
-            
+
             <li class="nav-item">
-            <a class="nav-link" href="{{route('home.viewUserList')}}">View Users</a>
+            <a class="nav-link" href="{{route('manager.busManagerList')}}">Manager List</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('home.buscounter')}}">Bus Counter List</a>

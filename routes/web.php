@@ -56,6 +56,9 @@ Route::group(['middleware'=>['sass']], function(){
 
 Route::get('/manager', 'ManagerController@index')->name('manager.index');
 
+//Manager List
+Route::get('/system/busManager', 'ManagerController@busManagerList')->name('manager.busManagerList');
+
 
 
 //Logout Route
