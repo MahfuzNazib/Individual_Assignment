@@ -61,6 +61,10 @@ Route::get('/system/busManager', 'ManagerController@busManagerList')->name('mana
 
 Route::get('/manager/buscounter', 'ManagerController@buscounter')->name('manager.buscounter');
 
+//Edit Bus Counter by Manager
+
+Route::get('/manager/editBusCounter/{id}', 'ManagerController@editBusCounter')->name('manager.editBusCounter');
+Route::post('/manager/editBusCounter/{id}', 'ManagerController@updateBusCounter')->name('manager.updatebuscounter');
 
 //Logout Route
 Route::get('/logout','LogoutController@index')->name('logout.index');
