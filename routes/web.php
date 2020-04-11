@@ -59,6 +59,7 @@ Route::get('/manager', 'ManagerController@index')->name('manager.index');
 //Manager List
 Route::get('/system/busManager', 'ManagerController@busManagerList')->name('manager.busManagerList');
 
+Route::get('/manager/buscounter', 'ManagerController@buscounter')->name('manager.buscounter');
 
 
 //Logout Route

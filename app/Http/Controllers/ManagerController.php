@@ -20,4 +20,10 @@ class ManagerController extends Controller
         error_log($managerList);
         return view('Manager.ManagerList',['managerList' => $managerList]);
     }
+
+    //Bus Counter
+    public function buscounter(){
+        
+        return view('Manager.BusCounter');
+    }
 }
