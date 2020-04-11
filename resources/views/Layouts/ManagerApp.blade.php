@@ -31,6 +31,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('manager.buscounter')}}">Bus Counter List</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('manager.addBus')}}">Add Bus</a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{route('logout.index')}}">Logout</a>
             </li>

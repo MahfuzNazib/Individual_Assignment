@@ -128,4 +128,19 @@ class ManagerController extends Controller
         }
     }
 
+    //Add New Bus
+
+    public function addBus(){
+        return view('Manager.AddBus');
+    }
+
+    public function insertBus(Request $req){
+        $this->validate($req,[
+            'name' => 'required',
+            'oparetor' => 'required',
+            'location' => 'required',
+            'seats' => 'required'
+        ]);
+    }
+
 }

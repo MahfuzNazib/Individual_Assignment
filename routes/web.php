@@ -73,6 +73,11 @@ Route::get('/manager/action', 'ManagerController@action')->name('manager.search'
 Route::get('/manager/deleteBusCounter/{id}', 'ManagerController@deleteBusCounter')->name('manager.deleteBusCounter');
 Route::get('/manager/removeBusCounter/{id}', 'ManagerController@removeBusCounter')->name('manager.removeBusCounter');
 
+
+//Add New Bus
+Route::get('/manager/addBus', 'ManagerController@addBus')->name('manager.addBus');
+Route::post('/manager/addBus', 'ManagerController@insertBus')->name('manager.insertBus');
+
 //Logout Route
 Route::get('/logout','LogoutController@index')->name('logout.index');
 
