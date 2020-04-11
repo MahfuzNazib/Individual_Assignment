@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\BusCounter;
 use DB;
+use App\Bus;
 
 class ManagerController extends Controller
 {
@@ -141,6 +142,17 @@ class ManagerController extends Controller
             'location' => 'required',
             'seats' => 'required'
         ]);
+        
+        $newbus = new Bus();
+        $newbus->name = $req->name;
+        $newbus->oparetor = $req->oparetor;
+        $newbus->location = $req->location;
+        $newbus->seats = $req->seats;
+
+        $newbus->save();
+
+        return redirect()->route('manager.addBus')->with('msg','Bus Added Done');
+
     }
 
 }

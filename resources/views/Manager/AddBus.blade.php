@@ -18,6 +18,12 @@
                 </ul>
             </div>
         @endif
+
+        @if(session('msg'))
+            <div class="alert alert-primary">
+                {{session('msg')}}
+            </div>
+        @endif
         {{csrf_field()}}
         <table width="70%">
             <tr>
