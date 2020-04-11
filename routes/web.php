@@ -69,6 +69,10 @@ Route::post('/manager/editBusCounter/{id}', 'ManagerController@updateBusCounter'
 // Bus Counter Search
 Route::get('/manager/action', 'ManagerController@action')->name('manager.search');
 
+//Delete Bus Counter
+Route::get('/manager/deleteBusCounter/{id}', 'ManagerController@deleteBusCounter')->name('manager.deleteBusCounter');
+Route::get('/manager/removeBusCounter/{id}', 'ManagerController@removeBusCounter')->name('manager.removeBusCounter');
+
 //Logout Route
 Route::get('/logout','LogoutController@index')->name('logout.index');
 
