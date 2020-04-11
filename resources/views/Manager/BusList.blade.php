@@ -5,6 +5,29 @@
         <hr>
     </center>
 
+    @if(session('msg'))
+        <div class="alert alert-primary">
+            {{session('msg')}}
+        </div>
+    @endif
+
+    <div class="container">
+    <form method="post">
+        {{csrf_field()}}
+        
+    <table>
+        <tr>
+            <td>
+                <input type="text" name="search" class="form-control" placeholder="Search by Name or Location">
+            </td>
+            <td>
+                <input type="submit" class="btn btn-success" value="Search">
+            </td>
+        </tr>
+    </table>
+    </form>
+    </div>
+
     <div class="container bg card">
         <table class="table">
             <tr>
@@ -25,11 +48,11 @@
                     <td>{{$bus['seats']}}</td>
                     <td>
                         <a href="#">
-                            <input type="submit" class="btn btn-primary" value="Edit">
+                            <input type="submit" class="btn btn-primary" value="...">
                         </a>
 
                         <a href="#">
-                            <input type="submit" class="btn btn-danger" value="Delete">
+                            <input type="submit" class="btn btn-danger" value="X">
                         </a>
                     </td>
                 </tr>

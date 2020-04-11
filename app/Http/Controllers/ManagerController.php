@@ -151,7 +151,7 @@ class ManagerController extends Controller
 
         $newbus->save();
 
-        return redirect()->route('manager.addBus')->with('msg','Bus Added Done');
+        return redirect()->route('manager.busList')->with('msg','Bus Added Done');
 
     }
 
@@ -161,6 +161,11 @@ class ManagerController extends Controller
 
         $busList = Bus::all();
         return view('Manager.BusList',['busList' => $busList]);
+    }
+
+    public function busListSearch(Request $req){
+        $src = $req->Search;
+        
     }
 
     //Get All Bus List
