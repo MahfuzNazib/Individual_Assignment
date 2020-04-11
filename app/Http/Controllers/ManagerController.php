@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\BusCounter;
 use DB;
 
 class ManagerController extends Controller
@@ -71,4 +72,60 @@ class ManagerController extends Controller
         $busCounter->delete();
         return redirect()->route('home.buscounter')->with('msg', 'Bus Counter Deleted');
     }
+
+    //Bus Counter Search
+    function action(request $request){
+        if($request->ajax()){
+            $output = '';
+            $query = $request->get('query');
+            // error_log($query);
+            if($query != ''){
+                $data = DB::table('bus_counters')
+                        -> where('name','like','%'. $query .'%')
+                        ->orWhere('id','like','%'.$query.'%')
+                        ->orWhere('location','like','%'.$query.'%')
+                        ->get();
+            }
+            else{
+                $data = DB::table('bus_counters')->get();
+            }
+            $total_row = $data->count();
+            if($total_row > 0){
+                foreach($data as $row){
+                    $output .= '
+                        <tr>
+                            <td>'.$row->id.'</td>
+                            <td>'.$row->oparetor.'</td>
+                            <td>'.$row->manager.'</td>
+                            <td>'.$row->name.'</td>
+                            <td>'.$row->location.'</td>
+                            <td>
+                                <a href="/manager/editBusCounter/'.$row->id.'">
+                                    <input type="submit" class="btn btn-info" value="Edit">
+                                </a>
+
+                                <a href="/manager/deleteBusCounter/'.$row->id.'">
+                                    <input type="submit" class="btn btn-danger" value="Delete">
+                                </a>
+                            </td>
+                        </tr>
+                    ';
+                }
+            }
+            else{
+                $output = '
+                    <tr>
+                        <td align="center" colspan="5"> No Data Found  </td>
+                    </tr>
+                ';
+            }
+
+            $data = array(
+                'table_data'    => $output
+            );
+
+            echo json_encode($data);
+        }
+    }
+
 }

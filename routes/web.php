@@ -66,6 +66,9 @@ Route::get('/manager/buscounter', 'ManagerController@buscounter')->name('manager
 Route::get('/manager/editBusCounter/{id}', 'ManagerController@editBusCounter')->name('manager.editBusCounter');
 Route::post('/manager/editBusCounter/{id}', 'ManagerController@updateBusCounter')->name('manager.updatebuscounter');
 
+// Bus Counter Search
+Route::get('/manager/action', 'ManagerController@action')->name('manager.search');
+
 //Logout Route
 Route::get('/logout','LogoutController@index')->name('logout.index');
 

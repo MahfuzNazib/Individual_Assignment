@@ -47,7 +47,7 @@
 
                 function fetch_customer_data(query = ''){
                     $.ajax({
-                        url: "{{ route('home.search') }}",
+                        url: "{{ route('manager.search') }}",
                         method: 'GET',
                         data : {query : query},
                         dataType: 'json',
