@@ -45,18 +45,21 @@
             </tr>
             <tr>
                 <td>
-                    <strong> Your Sure To Delete This Data? </strong>
+                    <strong> Are You Sure To Delete This Data? </strong>
                 </td>
                 <td>
                     <center>
                             <a href="/home/removeBusCounter/{{ $busCounter['id'] }}">
                                 <input type="submit" class="btn btn-danger" value="Yes">
                             </a>
-                            <input type="submit" class="btn btn-secondary" value="No">
+
+                            <!-- if No.Go back To Bus Counter List Page -->
+                            <a href="{{route('home.buscounter')}}">
+                                <input type="submit" class="btn btn-secondary" value="No">
+                            </a>
                     </center>
                 </td>
             </tr>
         </table>
-        <!-- </form> -->
     </div>
 @endsection

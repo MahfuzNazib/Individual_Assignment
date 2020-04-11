@@ -32,38 +32,29 @@
 
             <tr>
                 <td>
-                    <select class="form-control" name="dept">
-                        <option ></option>
-                        <option >CSE</option>
-                        <option >CSE</option>
-                        <option >BBA</option>
-                        <option >MSC</option>
-                    </select>
+                    <input type="text" name="username" class="form-control" placeholder="Username">
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <input type="number" class="form-control" placeholder="CGPA" name="cgpa">
+                    <input type="email" class="form-control" placeholder="Email" name="email">
                 </td>
             </tr>
 
-            
-
-            <tr>
-                <td>
-                    Login Information
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <input type="text" placeholder="Username" name="username" class="form-control">
-                </td>
-            </tr>
             <tr>
                 <td>
                     <input type="password" placeholder="Password" name="password" class="form-control">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <select class="form-control" name="type">
+                        <option disabled>User Type</option>
+                        <option>Admin</option>
+                        <option>Manager</option>
+                    </select>
                 </td>
             </tr>
 

@@ -22,15 +22,16 @@ class LoginController extends Controller
         $user = User::where('username',$req->username)
                     ->where('password',$req->password)
                     ->first();
-        // error_log($user);
+        error_log($user);
         if($user != null){
 
             if($user['type'] == "Admin"){
                 $req->session()->put('username', $req->username);
                 return redirect()->route('home.index');
             }
-            else{
-                "Manager Request";
+            if($user['type'] == "Manager"){
+                $req->session()->put('username', $req->username);
+                return redirect()->route('manager.index');
             }
             
         }

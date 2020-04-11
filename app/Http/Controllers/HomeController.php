@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Student;
 use App\User;
 use App\BusCounter;
-// use Illuminate\Support\Facades\DB;
 use DB;
 use Symfony\Component\Console\Helper\Table;
 
@@ -42,7 +40,6 @@ class HomeController extends Controller
 
         $user->username = $req->uname;
         $user->password = $req->password;
-        // $suser->cgpa = $req->cgpa;
 
         $user->save();
 
@@ -53,19 +50,23 @@ class HomeController extends Controller
 
         //Validation
         $this->validate($req,[
-            'name' => 'required',
-            'dept' => 'required',
-            'cgpa' => 'required'
+            'name'      => 'required',
+            'email'     => 'required',
+            'username'  => 'required',
+            'password'  => 'required',
+            'type'      => 'required'
         ]);
-        $student = new Student;
+        $user = new User;
 
-        $student->name = $req->name;
-        $student->dept = $req->dept;
-        $student->cgpa = $req->cgpa;
+        $user->name = $req->name;
+        $user->email = $req->email;
+        $user->username = $req->username;
+        $user->password = $req->password;
+        $user->type = $req->type;
 
-        $student->save();
+        $user->save();
 
-        return redirect()->route('home.createUser')->with('msg','Student Successfully Added');
+        return redirect()->route('home.createUser')->with('msg','User Successfully Added');
     }
 
     public function delete($userId, Request $req){

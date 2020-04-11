@@ -24,11 +24,15 @@ Route::post('/login', 'LoginController@verifyUser');
 Route::group(['middleware'=>['sass']], function(){
     Route::get('/home','HomeController@index')->name('home.index');
     Route::get('/home/viewUserList','HomeController@viewUserList')->name('home.viewUserList');
+
     Route::get('/home/createUser','HomeController@createUser')->name('home.createUser');
+    Route::post('/home/createUser','HomeController@insertUser')->name('home.insertUser');
+
     Route::get('/home/editUser/{userId}','HomeController@editUser')->name('home.editUser');
     Route::post('/home/editUser/{userId}','HomeController@update')->name('home.update');
-    Route::post('/home/createUser','HomeController@insertUser')->name('home.insertUser');
+
     Route::get('/home/delete/{userId}','HomeController@delete')->name('home.delete');
+
     Route::get('/home/buscounter', 'HomeController@buscounter')->name('home.buscounter');
     Route::get('/home/action', 'HomeController@action')->name('home.search');
 
@@ -46,6 +50,11 @@ Route::group(['middleware'=>['sass']], function(){
     
 
 });
+
+
+//Manager Route
+
+Route::get('/manager', 'ManagerController@index')->name('manager.index');
 
 
 
