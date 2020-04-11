@@ -6,7 +6,7 @@
     </center>
 
     <div class="container bg card">
-        <form method="POST">
+        <form method="post">
         
         <!-- print Error -->
         @if($errors->any())

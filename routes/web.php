@@ -78,6 +78,9 @@ Route::get('/manager/removeBusCounter/{id}', 'ManagerController@removeBusCounter
 Route::get('/manager/addBus', 'ManagerController@addBus')->name('manager.addBus');
 Route::post('/manager/addBus', 'ManagerController@insertBus')->name('manager.insertBus');
 
+
+//Bus List
+Route::get('/manager/busList', 'ManagerController@busList')->name('manager.busList');
+
 //Logout Route
 Route::get('/logout','LogoutController@index')->name('logout.index');
-

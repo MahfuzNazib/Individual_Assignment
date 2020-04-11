@@ -155,4 +155,9 @@ class ManagerController extends Controller
 
     }
 
+    //Bus List 
+
+    public function busList(){
+        return view('Manager.BusList');
+    }
 }
